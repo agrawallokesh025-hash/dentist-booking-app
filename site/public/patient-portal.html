@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Portal | LuxeSmile Clinic</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#CBAA5C',
+                        secondary: '#2C3E50',
+                        light: '#F9F9F9'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .text-primary-gold { color: #CBAA5C; }
+        .btn-primary {
+            background-color: #CBAA5C;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #B5974E;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body class="font-sans bg-light text-secondary antialiased flex flex-col min-h-screen">
+    
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 glass transition-all duration-300 py-4 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <a href="index.html" class="font-serif text-2xl font-bold text-secondary flex items-center gap-2">
+                        <i class="fa-solid fa-tooth text-primary-gold"></i> LuxeSmile
+                    </a>
+                </div>
+                <div id="nav-controls" class="hidden flex space-x-4 items-center">
+                    <span id="patient-greeting" class="text-sm font-medium"></span>
+                    <button id="logout-btn" class="text-sm text-red-500 hover:text-red-700 transition">Logout</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="flex-grow pt-32 pb-12">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Login View -->
+            <div id="login-view" class="max-w-md mx-auto bg-white p-8 sm:p-12 rounded-3xl shadow-lg border border-gray-100 text-center">
+                <h1 class="text-3xl font-serif font-bold text-secondary mb-4">Patient Portal</h1>
+                <p class="text-gray-500 mb-8">Enter your registered phone number to view your appointment history.</p>
+                
+                <form id="login-form" class="space-y-6">
+                    <div id="login-error" class="hidden bg-red-50 text-red-600 p-3 rounded-lg text-sm border border-red-200">No appointments found for this number.</div>
+                    
+                    <div class="text-left">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+                        <div class="relative">
+                            <i class="fa-solid fa-phone absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                            <input id="phone-input" type="tel" required class="w-full pl-12 pr-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary-gold outline-none transition" placeholder="+1 (555) 000-0000">
+                        </div>
+                    </div>
+                    <button type="submit" class="w-full btn-primary py-4 shadow-lg text-lg">Access Portal</button>
+                    <div class="mt-4 text-sm text-gray-400">Not registered? <a href="booking.html" class="text-primary-gold underline">Book an appointment</a></div>
+                </form>
+            </div>
+
+            <!-- Dashboard View -->
+            <div id="dashboard-view" class="hidden">
+                <div class="mb-8 flex justify-between items-end">
+                    <div>
+                        <h2 class="text-3xl font-serif font-bold text-secondary mb-2">My Appointments</h2>
+                        <p class="text-gray-500">Track your past and upcoming visits to LuxeSmile.</p>
+                    </div>
+                    <a href="booking.html" class="btn-primary flex items-center gap-2"><i class="fa-solid fa-plus"></i> New Booking</a>
+                </div>
+
+                <!-- Tabs -->
+                <div class="flex space-x-4 mb-6 border-b border-gray-200">
+                    <button id="tab-upcoming" class="pb-2 px-2 text-primary-gold font-medium border-b-2 border-primary-gold">Upcoming</button>
+                    <button id="tab-past" class="pb-2 px-2 text-gray-500 font-medium hover:text-secondary">Past History</button>
+                </div>
+
+                <!-- List -->
+                <div id="appointments-list" class="space-y-4">
+                    <!-- Cards populated by JS -->
+                </div>
+                
+                <div id="empty-state" class="hidden text-center py-12 bg-white rounded-3xl border border-gray-100 border-dashed">
+                    <i class="fa-solid fa-calendar-xmark text-4xl text-gray-300 mb-4"></i>
+                    <h3 class="text-xl font-serif font-bold text-gray-400">No appointments found</h3>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <script src="js/database.js"></script>
+    <script src="js/patient-portal.js"></script>
+</body>
+</html>

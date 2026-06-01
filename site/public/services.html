@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | LuxeSmile Clinic</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#CBAA5C',
+                        secondary: '#2C3E50',
+                        light: '#F9F9F9'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .text-primary-gold { color: #CBAA5C; }
+        .bg-primary-gold { background-color: #CBAA5C; }
+        .btn-primary {
+            background-color: #CBAA5C;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #B5974E;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body class="font-sans bg-light text-secondary antialiased flex flex-col min-h-screen">
+    
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 glass transition-all duration-300 py-4">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <a href="index.html" class="font-serif text-2xl font-bold text-secondary flex items-center gap-2">
+                        <i class="fa-solid fa-tooth text-primary-gold"></i> LuxeSmile
+                    </a>
+                </div>
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="index.html" class="text-secondary hover:text-primary-gold transition">Home</a>
+                    <a href="services.html" class="text-secondary hover:text-primary-gold transition">Services</a>
+                    <a href="team.html" class="text-secondary hover:text-primary-gold transition">Team</a>
+                    <a href="about.html" class="text-secondary hover:text-primary-gold transition">About</a>
+                    <a href="gallery.html" class="text-secondary hover:text-primary-gold transition">Gallery</a>
+                    <a href="contact.html" class="text-secondary hover:text-primary-gold transition">Contact</a>
+                    <a href="booking.html" class="btn-primary ml-4 shadow-md">Book Now</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="flex-grow pt-24 pb-12">
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="text-center mb-16">
+                <h1 class="text-4xl md:text-5xl font-serif font-bold text-secondary mb-4">Our Premium Treatments</h1>
+                <p class="text-gray-500 max-w-2xl mx-auto text-lg">Comprehensive dental care utilizing state-of-the-art technology and unparalleled expertise.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
+                <div class="bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden flex flex-col xl:flex-row">
+                    <div class="w-full xl:w-2/5 h-48 xl:h-auto bg-gray-200" style="background-image: url('https://images.unsplash.com/photo-1606811841689-23dfddce3e95?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80'); background-size: cover; background-position: center;"></div>
+                    <div class="p-8 xl:w-3/5 flex flex-col justify-center">
+                        <h3 class="text-2xl font-serif font-bold mb-2">Cosmetic Dentistry</h3>
+                        <p class="text-gray-500 mb-6 text-sm">Transform your appearance with porcelain veneers, professional teeth whitening, and complete smile designs.</p>
+                        <a href="booking.html" class="text-primary-gold font-semibold hover:underline mt-auto">Book Consultation &rarr;</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden flex flex-col xl:flex-row">
+                    <div class="w-full xl:w-2/5 h-48 xl:h-auto bg-gray-200" style="background-image: url('https://images.unsplash.com/photo-1598256989800-fea5ce5146f2?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80'); background-size: cover; background-position: center;"></div>
+                    <div class="p-8 xl:w-3/5 flex flex-col justify-center">
+                        <h3 class="text-2xl font-serif font-bold mb-2">Implantology</h3>
+                        <p class="text-gray-500 mb-6 text-sm">Restore missing teeth with premium titanium implants. Lifelong durability matching natural aesthetics.</p>
+                        <a href="booking.html" class="text-primary-gold font-semibold hover:underline mt-auto">Book Consultation &rarr;</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden flex flex-col xl:flex-row">
+                    <div class="w-full xl:w-2/5 h-48 xl:h-auto bg-gray-200" style="background-image: url('https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80'); background-size: cover; background-position: center;"></div>
+                    <div class="p-8 xl:w-3/5 flex flex-col justify-center">
+                        <h3 class="text-2xl font-serif font-bold mb-2">Orthodontics</h3>
+                        <p class="text-gray-500 mb-6 text-sm">Featuring Invisalign clear aligners and ceramic braces for discreet, effective teeth straightening.</p>
+                        <a href="booking.html" class="text-primary-gold font-semibold hover:underline mt-auto">Book Consultation &rarr;</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden flex flex-col xl:flex-row">
+                    <div class="w-full xl:w-2/5 h-48 xl:h-auto bg-gray-200" style="background-image: url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80'); background-size: cover; background-position: center;"></div>
+                    <div class="p-8 xl:w-3/5 flex flex-col justify-center">
+                        <h3 class="text-2xl font-serif font-bold mb-2">Restorative</h3>
+                        <p class="text-gray-500 mb-6 text-sm">Crowns, bridges, and tooth-colored fillings utilizing the highest quality biocompatible materials.</p>
+                        <a href="booking.html" class="text-primary-gold font-semibold hover:underline mt-auto">Book Consultation &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-secondary text-white pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+                <div>
+                    <h3 class="font-serif text-2xl font-bold mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-tooth text-primary-gold"></i> LuxeSmile
+                    </h3>
+                    <p class="text-gray-400 mb-6">Elevating dentistry to an art form. Premium dental care tailored to your unique smile.</p>
+                </div>
+                <div>
+                    <h4 class="font-serif text-xl mb-4 text-primary-gold">Quick Links</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="services.html" class="hover:text-white transition">Services</a></li>
+                        <li><a href="team.html" class="hover:text-white transition">Our Team</a></li>
+                        <li><a href="testimonials.html" class="hover:text-white transition">Testimonials</a></li>
+                        <li><a href="contact.html" class="hover:text-white transition">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-serif text-xl mb-4 text-primary-gold">Contact</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><i class="fa-solid fa-location-dot mr-2 w-4"></i> 123 Luxury Ave, Beverly Hills, CA</li>
+                        <li><i class="fa-solid fa-phone mr-2 w-4"></i> (555) 123-4567</li>
+                        <li><i class="fa-solid fa-envelope mr-2 w-4"></i> info@luxesmile.com</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-serif text-xl mb-4 text-primary-gold">Timings</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li>Mon - Fri: 9:00 AM - 6:00 PM</li>
+                        <li>Saturday: 10:00 AM - 4:00 PM</li>
+                        <li>Sunday: Closed</li>
+                    </ul>
+                    <a href="https://wa.me/1234567890" target="_blank" class="inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-full mt-6 transition">
+                        <i class="fa-brands fa-whatsapp text-lg"></i> WhatsApp Us
+                    </a>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-12 pt-8 text-center text-gray-500 text-sm">
+                &copy; 2026 LuxeSmile Clinic. All rights reserved.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | LuxeSmile Clinic</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#CBAA5C',
+                        secondary: '#2C3E50',
+                        light: '#F9F9F9'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .text-primary-gold { color: #CBAA5C; }
+        .bg-primary-gold { background-color: #CBAA5C; }
+        .btn-primary {
+            background-color: #CBAA5C;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #B5974E;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body class="font-sans bg-light text-secondary antialiased flex flex-col min-h-screen">
+    
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 glass transition-all duration-300 py-4">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <a href="index.html" class="font-serif text-2xl font-bold text-secondary flex items-center gap-2">
+                        <i class="fa-solid fa-tooth text-primary-gold"></i> LuxeSmile
+                    </a>
+                </div>
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="index.html" class="text-secondary hover:text-primary-gold transition">Home</a>
+                    <a href="services.html" class="text-secondary hover:text-primary-gold transition">Services</a>
+                    <a href="team.html" class="text-secondary hover:text-primary-gold transition">Team</a>
+                    <a href="about.html" class="text-secondary hover:text-primary-gold transition">About</a>
+                    <a href="gallery.html" class="text-secondary hover:text-primary-gold transition">Gallery</a>
+                    <a href="contact.html" class="text-secondary hover:text-primary-gold transition">Contact</a>
+                    <a href="booking.html" class="btn-primary ml-4 shadow-md">Book Now</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="flex-grow pt-24 pb-12">
+        
+        <div class="relative bg-white overflow-hidden shadow-sm mb-16 rounded-3xl mx-4 sm:mx-8">
+            <div class="max-w-7xl mx-auto">
+                <div class="relative z-10 pb-8 bg-white sm:pb-12 md:pb-16 lg:max-w-xl lg:w-5/12 lg:pb-20 xl:pb-28 pt-20 px-8">
+                    <main class="mt-10 mx-auto max-w-7xl sm:mt-12 md:mt-16 lg:mt-20 xl:mt-24">
+                        <div class="sm:text-center lg:text-left">
+                            <h1 class="text-4xl tracking-tight font-serif font-extrabold text-secondary sm:text-5xl md:text-6xl">
+                                <span class="block">Elevate Your Smile</span>
+                                <span class="block text-primary-gold">To Perfection</span>
+                            </h1>
+                            <p class="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-3 md:text-xl lg:mx-0">
+                                Experience world-class dental care in a pristine, relaxing environment. Where precision meets artistry.
+                            </p>
+                            <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start gap-4">
+                                <a href="booking.html" class="btn-primary text-center">Book Appointment</a>
+                                <a href="https://wa.me/1234567890" class="btn-primary bg-secondary hover:bg-gray-800 text-center flex items-center justify-center gap-2">
+                                    <i class="fa-brands fa-whatsapp text-green-400"></i> WhatsApp
+                                </a>
+                            </div>
+                            <div class="mt-10 sm:mt-12 flex justify-center lg:justify-start flex-wrap gap-6 text-gray-400 text-xs sm:text-sm font-semibold uppercase tracking-wider items-center">
+                                <span class="flex items-center gap-2"><i class="fa-solid fa-award text-primary-gold text-xl"></i> Award Winning</span>
+                                <span class="flex items-center gap-2"><i class="fa-solid fa-star text-primary-gold text-xl"></i> Top Rated 2026</span>
+                                <span class="flex items-center gap-2"><i class="fa-solid fa-user-doctor text-primary-gold text-xl"></i> Elite Specialists</span>
+                            </div>
+                        </div>
+                    </main>
+                </div>
+            </div>
+            <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-7/12 flex items-center justify-center p-6 sm:p-12 overflow-visible">
+                <!-- Glow Effect -->
+                <div class="absolute w-[80%] h-[80%] bg-blue-400/20 rounded-full blur-3xl pointer-events-none"></div>
+                <!-- Glassmorphism Card -->
+                <div class="relative w-full aspect-square max-w-[550px] rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(44,62,80,0.15)] border border-white/60 bg-white/40 backdrop-blur-md flex">
+                    <canvas id="hero-sequence-canvas" class="w-full h-full block rounded-3xl"></canvas>
+                </div>
+            </div>
+            
+            <script>
+                document.addEventListener("DOMContentLoaded", () => {
+                    const canvas = document.getElementById("hero-sequence-canvas");
+                    const ctx = canvas.getContext("2d");
+                    
+                    const frameCount = 240;
+                    const currentFrame = index => (
+                        `assets/hero_sequence/ezgif-frame-${index.toString().padStart(3, '0')}.jpg`
+                    );
+
+                    const images = [];
+                    for (let i = 1; i <= frameCount; i++) {
+                        const img = new Image();
+                        img.src = currentFrame(i);
+                        images.push(img);
+                    }
+
+                    let frameIndex = 0;
+                    let lastTime = 0;
+                    const fps = 24;
+                    const fpsInterval = 1000 / fps;
+
+                    images[0].onload = () => {
+                        resizeCanvas();
+                        window.addEventListener('resize', resizeCanvas);
+                        requestAnimationFrame(updateFrame);
+                    };
+
+                    function resizeCanvas() {
+                        const container = canvas.parentElement;
+                        canvas.width = container.clientWidth * window.devicePixelRatio;
+                        canvas.height = container.clientHeight * window.devicePixelRatio;
+                        drawFrame(frameIndex);
+                    }
+
+                    function drawFrame(index) {
+                        let drawIdx = index;
+                        while(drawIdx >= 0 && !images[drawIdx].complete) {
+                            drawIdx--;
+                        }
+                        if (drawIdx < 0) return;
+
+                        const img = images[drawIdx];
+                        
+                        const canvasRatio = canvas.width / canvas.height;
+                        const imgRatio = img.width / img.height;
+                        
+                        let drawWidth = canvas.width;
+                        let drawHeight = canvas.height;
+                        let offsetX = 0;
+                        let offsetY = 0;
+                        
+                        if (canvasRatio > imgRatio) {
+                            drawHeight = canvas.width / imgRatio;
+                            offsetY = (canvas.height - drawHeight) / 2;
+                        } else {
+                            drawWidth = canvas.height * imgRatio;
+                            offsetX = (canvas.width - drawWidth) / 2;
+                        }
+                        
+                        ctx.clearRect(0, 0, canvas.width, canvas.height);
+                        ctx.drawImage(img, offsetX, offsetY, drawWidth, drawHeight);
+                    }
+
+                    function updateFrame(time) {
+                        requestAnimationFrame(updateFrame);
+                        
+                        const elapsed = time - lastTime;
+                        if (elapsed > fpsInterval) {
+                            lastTime = time - (elapsed % fpsInterval);
+                            drawFrame(frameIndex);
+                            if (images[frameIndex].complete) {
+                                frameIndex = (frameIndex + 1) % frameCount;
+                            }
+                        }
+                    }
+                });
+            </script>
+        </div>
+
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+            <h2 class="text-3xl font-serif text-center mb-12 font-bold">Premium Services</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-2xl shadow-md hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] hover:-translate-y-2 transition-all duration-300 text-center border border-gray-100 group cursor-pointer">
+                    <div class="w-16 h-16 bg-light rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-primary-gold transition-colors duration-300">
+                        <i class="fa-solid fa-tooth text-2xl text-primary-gold group-hover:text-white group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300"></i>
+                    </div>
+                    <h3 class="text-xl font-serif font-bold mb-3">Cosmetic Dentistry</h3>
+                    <p class="text-gray-500 mb-4">Veneers, teeth whitening, and complete smile makeovers crafted for brilliance.</p>
+                    <a href="services.html" class="text-primary-gold font-semibold hover:underline">Learn More &rarr;</a>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-md hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] hover:-translate-y-2 transition-all duration-300 text-center border border-gray-100 group cursor-pointer">
+                    <div class="w-16 h-16 bg-light rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-primary-gold transition-colors duration-300">
+                        <i class="fa-solid fa-teeth-open text-2xl text-primary-gold group-hover:text-white group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300"></i>
+                    </div>
+                    <h3 class="text-xl font-serif font-bold mb-3">Implantology</h3>
+                    <p class="text-gray-500 mb-4">Permanent, natural-looking tooth replacements using advanced materials.</p>
+                    <a href="services.html" class="text-primary-gold font-semibold hover:underline">Learn More &rarr;</a>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-md hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] hover:-translate-y-2 transition-all duration-300 text-center border border-gray-100 group cursor-pointer">
+                    <div class="w-16 h-16 bg-light rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-primary-gold transition-colors duration-300">
+                        <i class="fa-solid fa-face-smile text-2xl text-primary-gold group-hover:text-white group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-300"></i>
+                    </div>
+                    <h3 class="text-xl font-serif font-bold mb-3">Invisalign</h3>
+                    <p class="text-gray-500 mb-4">Clear, comfortable aligners for perfectly straight teeth without traditional braces.</p>
+                    <a href="services.html" class="text-primary-gold font-semibold hover:underline">Learn More &rarr;</a>
+                </div>
+            </div>
+            <div class="text-center mt-12">
+                <a href="services.html" class="btn-primary bg-secondary hover:bg-gray-800 inline-block">View All Services</a>
+            </div>
+        </div>
+        
+        <!-- Meet Our Specialists Section -->
+        <div class="bg-light py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-serif font-bold text-secondary mb-4">Meet Our Specialists</h2>
+                    <p class="text-gray-500 max-w-2xl mx-auto text-lg">World-class expertise delivered with compassionate care. Our elite team is dedicated to perfecting your smile.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                    <!-- Specialist 1 -->
+                    <div class="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group">
+                        <div class="relative h-80 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Dr. Sarah Jenkins" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 to-transparent p-6">
+                                <h3 class="text-white text-2xl font-serif font-bold">Dr. Sarah Jenkins</h3>
+                                <p class="text-primary-gold font-medium">Cosmetic Dentist</p>
+                            </div>
+                        </div>
+                        <div class="p-8">
+                            <div class="flex items-center gap-3 text-sm text-gray-500 mb-4 border-b border-gray-100 pb-4">
+                                <span><i class="fa-solid fa-graduation-cap text-primary-gold mr-1"></i> DDS, NYU</span>
+                                <span><i class="fa-solid fa-clock text-primary-gold mr-1"></i> 15+ Yrs Exp</span>
+                            </div>
+                            <p class="text-gray-600 mb-6 line-clamp-3">Specializing in full mouth reconstructions and advanced cosmetic procedures to craft the perfect, natural smile.</p>
+                            <a href="dentist-profile.html" class="inline-flex items-center font-semibold text-secondary hover:text-primary-gold transition-colors">View Profile <i class="fa-solid fa-arrow-right ml-2 text-sm"></i></a>
+                        </div>
+                    </div>
+                    <!-- Specialist 2 -->
+                    <div class="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group">
+                        <div class="relative h-80 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Dr. Michael Chen" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 to-transparent p-6">
+                                <h3 class="text-white text-2xl font-serif font-bold">Dr. Michael Chen</h3>
+                                <p class="text-primary-gold font-medium">Implantologist</p>
+                            </div>
+                        </div>
+                        <div class="p-8">
+                            <div class="flex items-center gap-3 text-sm text-gray-500 mb-4 border-b border-gray-100 pb-4">
+                                <span><i class="fa-solid fa-graduation-cap text-primary-gold mr-1"></i> DMD, Harvard</span>
+                                <span><i class="fa-solid fa-clock text-primary-gold mr-1"></i> 12+ Yrs Exp</span>
+                            </div>
+                            <p class="text-gray-600 mb-6 line-clamp-3">Renowned for precision implant placement and complex oral surgeries with a focus on minimally invasive techniques.</p>
+                            <a href="dentist-profile.html" class="inline-flex items-center font-semibold text-secondary hover:text-primary-gold transition-colors">View Profile <i class="fa-solid fa-arrow-right ml-2 text-sm"></i></a>
+                        </div>
+                    </div>
+                    <!-- Specialist 3 -->
+                    <div class="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group">
+                        <div class="relative h-80 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1594824436998-efa5c42bc292?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Dr. Emily Roberts" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 to-transparent p-6">
+                                <h3 class="text-white text-2xl font-serif font-bold">Dr. Emily Roberts</h3>
+                                <p class="text-primary-gold font-medium">Orthodontist</p>
+                            </div>
+                        </div>
+                        <div class="p-8">
+                            <div class="flex items-center gap-3 text-sm text-gray-500 mb-4 border-b border-gray-100 pb-4">
+                                <span><i class="fa-solid fa-graduation-cap text-primary-gold mr-1"></i> DDS, UCLA</span>
+                                <span><i class="fa-solid fa-clock text-primary-gold mr-1"></i> 10+ Yrs Exp</span>
+                            </div>
+                            <p class="text-gray-600 mb-6 line-clamp-3">Expert in clear aligner therapy and interceptive orthodontics, helping patients achieve flawlessly straight smiles.</p>
+                            <a href="dentist-profile.html" class="inline-flex items-center font-semibold text-secondary hover:text-primary-gold transition-colors">View Profile <i class="fa-solid fa-arrow-right ml-2 text-sm"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mt-12">
+                    <a href="team.html" class="btn-primary bg-secondary hover:bg-gray-800 inline-block">View Full Team</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Premium Testimonials Section -->
+        <div class="bg-white py-24 border-t border-gray-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-serif font-bold text-secondary mb-4">Patient Success Stories</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Review 1 -->
+                    <div class="bg-light p-8 rounded-3xl border border-gray-100 relative">
+                        <i class="fa-solid fa-quote-right text-4xl text-primary-gold/20 absolute top-8 right-8"></i>
+                        <div class="flex text-primary-gold mb-4 text-sm">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-gray-600 mb-8 italic">"The cosmetic veneer work done here was life-changing. Truly the most premium dental experience in Sambalpur."</p>
+                        <div class="flex items-center gap-4">
+                            <div>
+                                <h4 class="font-bold text-secondary">Aarti Dash</h4>
+                                <p class="text-xs text-gray-500">Sambalpur, Western Odisha</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Review 2 -->
+                    <div class="bg-light p-8 rounded-3xl border border-gray-100 relative">
+                        <i class="fa-solid fa-quote-right text-4xl text-primary-gold/20 absolute top-8 right-8"></i>
+                        <div class="flex text-primary-gold mb-4 text-sm">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-gray-600 mb-8 italic">"Got my implants done by Dr. Chen. Flawless procedure and beautiful results. Highly recommend to everyone in Rourkela!"</p>
+                        <div class="flex items-center gap-4">
+                            <div>
+                                <h4 class="font-bold text-secondary">Rakesh Mohanty</h4>
+                                <p class="text-xs text-gray-500">Rourkela, Western Odisha</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Review 3 -->
+                    <div class="bg-light p-8 rounded-3xl border border-gray-100 relative">
+                        <i class="fa-solid fa-quote-right text-4xl text-primary-gold/20 absolute top-8 right-8"></i>
+                        <div class="flex text-primary-gold mb-4 text-sm">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-gray-600 mb-8 italic">"The Invisalign treatment was so smooth. The clinic feels like a luxury spa rather than a dentist's office."</p>
+                        <div class="flex items-center gap-4">
+                            <div>
+                                <h4 class="font-bold text-secondary">Priya Patel</h4>
+                                <p class="text-xs text-gray-500">Jharsuguda, Western Odisha</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Review 4 -->
+                    <div class="bg-light p-8 rounded-3xl border border-gray-100 relative">
+                        <i class="fa-solid fa-quote-right text-4xl text-primary-gold/20 absolute top-8 right-8"></i>
+                        <div class="flex text-primary-gold mb-4 text-sm">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-gray-600 mb-8 italic">"Absolutely phenomenal service. They transformed my smile completely before my wedding. The best in Bargarh."</p>
+                        <div class="flex items-center gap-4">
+                            <div>
+                                <h4 class="font-bold text-secondary">Sanjay Mishra</h4>
+                                <p class="text-xs text-gray-500">Bargarh, Western Odisha</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Review 5 -->
+                    <div class="bg-light p-8 rounded-3xl border border-gray-100 relative">
+                        <i class="fa-solid fa-quote-right text-4xl text-primary-gold/20 absolute top-8 right-8"></i>
+                        <div class="flex text-primary-gold mb-4 text-sm">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-gray-600 mb-8 italic">"Professional, painless, and perfect. The before and after difference is just stunning. Worth every penny."</p>
+                        <div class="flex items-center gap-4">
+                            <div>
+                                <h4 class="font-bold text-secondary">Ananya Singh</h4>
+                                <p class="text-xs text-gray-500">Balangir, Western Odisha</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Review 6 -->
+                    <div class="bg-light p-8 rounded-3xl border border-gray-100 relative">
+                        <i class="fa-solid fa-quote-right text-4xl text-primary-gold/20 absolute top-8 right-8"></i>
+                        <div class="flex text-primary-gold mb-4 text-sm">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-gray-600 mb-8 italic">"They used state-of-the-art tech for my root canal. It was incredibly fast and I felt zero pain."</p>
+                        <div class="flex items-center gap-4">
+                            <div>
+                                <h4 class="font-bold text-secondary">Vikram Sharma</h4>
+                                <p class="text-xs text-gray-500">Sundergarh, Western Odisha</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mt-12">
+                    <a href="testimonials.html" class="text-primary-gold font-semibold hover:underline text-lg">Read More Success Stories &rarr;</a>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-secondary text-white pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+                <div>
+                    <h3 class="font-serif text-2xl font-bold mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-tooth text-primary-gold"></i> LuxeSmile
+                    </h3>
+                    <p class="text-gray-400 mb-6">Elevating dentistry to an art form. Premium dental care tailored to your unique smile.</p>
+                </div>
+                <div>
+                    <h4 class="font-serif text-xl mb-4 text-primary-gold">Quick Links</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="services.html" class="hover:text-white transition">Services</a></li>
+                        <li><a href="team.html" class="hover:text-white transition">Our Team</a></li>
+                        <li><a href="testimonials.html" class="hover:text-white transition">Testimonials</a></li>
+                        <li><a href="contact.html" class="hover:text-white transition">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-serif text-xl mb-4 text-primary-gold">Contact</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><i class="fa-solid fa-location-dot mr-2 w-4"></i> 123 Luxury Ave, Beverly Hills, CA</li>
+                        <li><i class="fa-solid fa-phone mr-2 w-4"></i> (555) 123-4567</li>
+                        <li><i class="fa-solid fa-envelope mr-2 w-4"></i> info@luxesmile.com</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-serif text-xl mb-4 text-primary-gold">Timings</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li>Mon - Fri: 9:00 AM - 6:00 PM</li>
+                        <li>Saturday: 10:00 AM - 4:00 PM</li>
+                        <li>Sunday: Closed</li>
+                    </ul>
+                    <a href="https://wa.me/1234567890" target="_blank" class="inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-full mt-6 transition">
+                        <i class="fa-brands fa-whatsapp text-lg"></i> WhatsApp Us
+                    </a>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-12 pt-8 text-center text-gray-500 text-sm">
+                &copy; 2026 LuxeSmile Clinic. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+
+</body>
+</html>

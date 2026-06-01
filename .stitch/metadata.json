@@ -1,0 +1,89 @@
+{
+  "name": "projects/11885027114945449224",
+  "projectId": "11885027114945449224",
+  "title": "dentist-booking-app",
+  "visibility": "PRIVATE",
+  "projectType": "TEXT_TO_UI",
+  "origin": "STITCH",
+  "deviceType": "DESKTOP",
+  "designTheme": {
+    "colorMode": "LIGHT",
+    "font": "INTER",
+    "roundness": "ROUND_SIXTEEN",
+    "customColor": "#0284C7"
+  },
+  "screens": {
+    "index": {
+      "id": "mock_id_for_index",
+      "sourceScreen": "projects/mock_project/screens/mock_id_for_index",
+      "x": 0,
+      "y": 0,
+      "width": 1440,
+      "height": 1024
+    },
+    "services": {
+      "id": "mock_id_for_services",
+      "sourceScreen": "projects/mock_project/screens/mock_id_for_services",
+      "x": 1500,
+      "y": 0,
+      "width": 1440,
+      "height": 1024
+    },
+    "booking": {
+      "id": "mock_id_for_booking",
+      "sourceScreen": "projects/mock_project/screens/mock_id_for_booking",
+      "x": 4500,
+      "y": 0,
+      "width": 1440,
+      "height": 1024
+    },
+    "team": {
+      "id": "mock_id_for_team",
+      "sourceScreen": "projects/mock_project/screens/mock_id_for_team",
+      "x": 3000,
+      "y": 0,
+      "width": 1440,
+      "height": 1024
+    },
+    "about": {
+      "id": "mock_id_for_about",
+      "sourceScreen": "projects/mock_project/screens/mock_id_for_about",
+      "x": 6000,
+      "y": 0,
+      "width": 1440,
+      "height": 1024
+    },
+    "dentist-profile": {
+      "id": "mock_id_for_dentist-profile",
+      "sourceScreen": "projects/mock_project/screens/mock_id_for_dentist-profile",
+      "x": 7500,
+      "y": 0,
+      "width": 1440,
+      "height": 1024
+    },
+    "testimonials": {
+      "id": "mock_id_for_testimonials",
+      "sourceScreen": "projects/mock_project/screens/mock_id_for_testimonials",
+      "x": 9000,
+      "y": 0,
+      "width": 1440,
+      "height": 1024
+    },
+    "gallery": {
+      "id": "mock_id_for_gallery",
+      "sourceScreen": "projects/mock_project/screens/mock_id_for_gallery",
+      "x": 10500,
+      "y": 0,
+      "width": 1440,
+      "height": 1024
+    },
+    "contact": {
+      "id": "mock_id_for_contact",
+      "sourceScreen": "projects/mock_project/screens/mock_id_for_contact",
+      "x": 12000,
+      "y": 0,
+      "width": 1440,
+      "height": 1024
+    }
+  }
+}
