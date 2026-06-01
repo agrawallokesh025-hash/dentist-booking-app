@@ -50,7 +50,30 @@ const changePassword = (req, res) => {
     });
 };
 
+const changeUsername = (req, res) => {
+    const { newUsername } = req.body;
+    const userId = req.user.id;
+
+    if (!newUsername) {
+        return res.status(400).json({ error: 'New username required' });
+    }
+
+    db.get('SELECT * FROM Users WHERE username = ? AND id != ?', [newUsername, userId], (err, user) => {
+        if (err) return res.status(500).json({ error: 'Database error' });
+        
+        if (user) {
+            return res.status(409).json({ error: 'Username already exists' });
+        }
+
+        db.run('UPDATE Users SET username = ? WHERE id = ?', [newUsername, userId], (updateErr) => {
+            if (updateErr) return res.status(500).json({ error: 'Failed to update username' });
+            res.json({ message: 'Username updated successfully' });
+        });
+    });
+};
+
 module.exports = {
     login,
-    changePassword
+    changePassword,
+    changeUsername
 };

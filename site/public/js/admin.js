@@ -218,4 +218,84 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.removeChild(link);
     });
 
+    // --- ACCOUNT SETTINGS ---
+    const usernameForm = document.getElementById('change-username-form');
+    const passwordForm = document.getElementById('change-password-form');
+    const usernameMsg = document.getElementById('username-msg');
+    const passwordMsg = document.getElementById('password-msg');
+
+    function showMessage(element, message, isError) {
+        element.textContent = message;
+        element.classList.remove('hidden', 'bg-red-50', 'text-red-600', 'border-red-200', 'bg-green-50', 'text-green-600', 'border-green-200');
+        if (isError) {
+            element.classList.add('bg-red-50', 'text-red-600', 'border-red-200');
+        } else {
+            element.classList.add('bg-green-50', 'text-green-600', 'border-green-200');
+        }
+    }
+
+    if (usernameForm) {
+        usernameForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const newUsername = document.getElementById('new-username').value;
+            const token = sessionStorage.getItem('luxesmile_admin_token');
+
+            try {
+                const res = await fetch('/api/auth/change-username', {
+                    method: 'POST',
+                    headers: { 
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: JSON.stringify({ newUsername })
+                });
+
+                const data = await res.json();
+                if (res.ok) {
+                    showMessage(usernameMsg, data.message || 'Username updated successfully', false);
+                    usernameForm.reset();
+                } else {
+                    showMessage(usernameMsg, data.error || 'Failed to update username', true);
+                }
+            } catch (err) {
+                showMessage(usernameMsg, 'Network error', true);
+            }
+        });
+    }
+
+    if (passwordForm) {
+        passwordForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const oldPassword = document.getElementById('old-password').value;
+            const newPassword = document.getElementById('new-password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+            const token = sessionStorage.getItem('luxesmile_admin_token');
+
+            if (newPassword !== confirmPassword) {
+                return showMessage(passwordMsg, 'New passwords do not match', true);
+            }
+
+            try {
+                const res = await fetch('/api/auth/change-password', {
+                    method: 'POST',
+                    headers: { 
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: JSON.stringify({ oldPassword, newPassword })
+                });
+
+                const data = await res.json();
+                if (res.ok) {
+                    showMessage(passwordMsg, data.message || 'Password updated successfully', false);
+                    passwordForm.reset();
+                } else {
+                    showMessage(passwordMsg, data.error || 'Failed to update password', true);
+                }
+            } catch (err) {
+                showMessage(passwordMsg, 'Network error', true);
+            }
+        });
+    }
+
 });
