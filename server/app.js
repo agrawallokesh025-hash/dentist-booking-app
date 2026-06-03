@@ -3,6 +3,8 @@ const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const path = require('path');
+const helmet = require('helmet');
+const rateLimit = require('express-rate-limit');
 
 // Route Imports
 const authRoutes = require('./routes/authRoutes');
@@ -11,7 +13,28 @@ const appointmentRoutes = require('./routes/appointmentRoutes');
 
 const app = express();
 
-// Middleware
+// Security Middleware
+app.use(helmet({
+    contentSecurityPolicy: false, // Disabled so CDN scripts (Tailwind/FontAwesome) work easily
+}));
+
+// Rate Limiting
+const globalLimiter = rateLimit({
+    windowMs: 15 * 60 * 1000, // 15 minutes
+    max: 150, // Limit each IP to 150 requests per windowMs
+    message: { error: 'Too many requests from this IP, please try again later.' }
+});
+app.use('/api/', globalLimiter);
+
+const authLimiter = rateLimit({
+    windowMs: 15 * 60 * 1000,
+    max: 15, // Limit each IP to 15 login/OTP attempts
+    message: { error: 'Too many attempts, please try again later.' }
+});
+app.use('/api/auth/login', authLimiter);
+app.use('/api/patients/send-otp', authLimiter);
+
+// General Middleware
 app.use(cors());
 app.use(bodyParser.json());
 
