@@ -153,12 +153,15 @@ document.addEventListener('DOMContentLoaded', () => {
                             ${apt.status}
                         </span>
                     </td>
-                    <td class="px-6 py-4 whitespace-nowrap text-right">
+                    <td class="px-6 py-4 whitespace-nowrap text-right flex items-center justify-end gap-3">
                         <select class="status-select bg-gray-50 border border-gray-200 text-xs rounded p-1 outline-none" data-id="${apt.id}">
                             <option value="Pending" ${apt.status === 'Pending' ? 'selected' : ''}>Pending</option>
                             <option value="Confirmed" ${apt.status === 'Confirmed' ? 'selected' : ''}>Confirm</option>
                             <option value="Completed" ${apt.status === 'Completed' ? 'selected' : ''}>Complete</option>
                         </select>
+                        <button class="download-patient-btn text-primary-gold hover:text-secondary transition" data-id="${apt.id}" title="Download Patient Details">
+                            <i class="fa-solid fa-download"></i>
+                        </button>
                     </td>
                 `;
                 tbody.appendChild(tr);
@@ -189,6 +192,31 @@ document.addEventListener('DOMContentLoaded', () => {
                         }
                     } catch (err) {
                         console.error('Failed to update status', err);
+                    }
+                });
+            });
+
+            // Patient Download Updates
+            document.querySelectorAll('.download-patient-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const id = e.currentTarget.getAttribute('data-id');
+                    const apt = allAppointments.find(a => a.id == id);
+                    if (apt) {
+                        const headers = ['ID', 'First Name', 'Last Name', 'Phone', 'Email', 'Service', 'Date', 'Time', 'Status', 'Notes', 'Created At'];
+                        const row = [
+                            apt.id, apt.firstName, apt.lastName, apt.phone, apt.email, apt.service,
+                            apt.date, apt.time, apt.status, `"${(apt.notes || '').replace(/"/g, '""')}"`, apt.createdAt
+                        ].join(',');
+                        
+                        const csvContent = [headers.join(','), row].join('\n');
+                        const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+                        const link = document.createElement('a');
+                        link.setAttribute('href', URL.createObjectURL(blob));
+                        link.setAttribute('download', `patient_details_${apt.firstName}_${apt.lastName}.csv`);
+                        link.style.display = 'none';
+                        document.body.appendChild(link);
+                        link.click();
+                        document.body.removeChild(link);
                     }
                 });
             });

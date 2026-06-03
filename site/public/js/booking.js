@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
             el.classList.add('border-gray-200');
         });
 
-        // Validate
+        // Validate basic empties
         requiredFields.forEach(field => {
             const el = document.getElementById(field.id);
             if (!el.value || el.value.trim() === '') {
@@ -39,8 +39,29 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
+        // Email Format Validation
+        const emailEl = document.getElementById('email');
+        const emailVal = emailEl.value.trim();
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailVal || !emailRegex.test(emailVal)) {
+            isValid = false;
+            emailEl.classList.remove('border-gray-200');
+            emailEl.classList.add('border-red-500', 'ring-red-500');
+            if (!firstInvalidElement) firstInvalidElement = emailEl;
+        }
+
+        // Phone 10-digit Validation
+        const phoneEl = document.getElementById('phone');
+        const phoneVal = phoneEl.value.trim().replace(/\D/g, ''); // strip non-digits
+        if (phoneVal.length !== 10) {
+            isValid = false;
+            phoneEl.classList.remove('border-gray-200');
+            phoneEl.classList.add('border-red-500', 'ring-red-500');
+            if (!firstInvalidElement) firstInvalidElement = phoneEl;
+        }
+
         if (!isValid) {
-            showModal('Validation Error', 'Please fill all required fields marked with * before submitting your appointment request.', 'error');
+            showModal('Validation Error', 'Please fill the valid information', 'error');
             const y = firstInvalidElement.getBoundingClientRect().top + window.scrollY - 100;
             window.scrollTo({top: y, behavior: 'smooth'});
             firstInvalidElement.focus();
