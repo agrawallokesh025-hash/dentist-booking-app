@@ -44,9 +44,15 @@ document.addEventListener('DOMContentLoaded', () => {
             });
             
             if (res.ok) {
+                const data = await res.json();
                 document.getElementById('display-phone').innerText = currentPhone;
                 loginView.classList.add('hidden');
                 otpView.classList.remove('hidden');
+                
+                // Auto-fill OTP for testing purposes since real SMS isn't connected
+                if (data.devOtp) {
+                    document.getElementById('otp-input').value = data.devOtp;
+                }
             } else {
                 document.getElementById('login-error').innerText = 'Failed to send OTP. Please try again.';
                 document.getElementById('login-error').classList.remove('hidden');

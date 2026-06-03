@@ -20,7 +20,7 @@ const requestOtp = (req, res) => {
             // Call modular SMS Service
             try {
                 await smsService.sendOtp(phone, otpCode);
-                res.json({ message: 'OTP sent successfully', phone });
+                res.json({ message: 'OTP sent successfully', phone, devOtp: otpCode });
             } catch (smsErr) {
                 console.error(smsErr);
                 res.status(500).json({ error: 'Failed to send SMS' });

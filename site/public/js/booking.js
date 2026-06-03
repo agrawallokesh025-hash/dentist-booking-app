@@ -39,17 +39,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // Email Format Validation
-        const emailEl = document.getElementById('email');
-        const emailVal = emailEl.value.trim();
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailVal || !emailRegex.test(emailVal)) {
-            isValid = false;
-            emailEl.classList.remove('border-gray-200');
-            emailEl.classList.add('border-red-500', 'ring-red-500');
-            if (!firstInvalidElement) firstInvalidElement = emailEl;
-        }
-
         // Phone 10-digit Validation
         const phoneEl = document.getElementById('phone');
         const phoneVal = phoneEl.value.trim().replace(/\D/g, ''); // strip non-digits
