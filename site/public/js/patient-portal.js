@@ -1,25 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     
     const loginView = document.getElementById('login-view');
-    const otpView = document.createElement('div'); // Dynamically create OTP view
-    const dashboardView = document.getElementById('dashboard-view');
-    const navControls = document.getElementById('nav-controls');
-    
-    // Inject OTP view HTML
-    otpView.id = 'otp-view';
-    otpView.className = 'max-w-md mx-auto bg-white p-8 sm:p-12 rounded-3xl shadow-lg border border-gray-100 text-center hidden';
-    otpView.innerHTML = `
-        <h1 class="text-3xl font-serif font-bold text-secondary mb-4">Verify Identity</h1>
-        <p class="text-gray-500 mb-8">We've sent a 6-digit code to <span id="display-phone" class="font-bold text-secondary"></span></p>
-        <form id="otp-form" class="space-y-6">
-            <div id="otp-error" class="hidden bg-red-50 text-red-600 p-3 rounded-lg text-sm border border-red-200">Invalid code.</div>
-            <div class="text-left">
-                <input id="otp-input" type="text" required maxlength="6" class="w-full px-4 py-3 border border-gray-200 rounded-xl text-center text-2xl tracking-[0.5em] focus:ring-2 focus:ring-primary-gold outline-none transition" placeholder="------">
-            </div>
-            <button type="submit" class="w-full btn-primary py-4 shadow-lg text-lg">Verify & Access</button>
-        </form>
-    `;
-    document.querySelector('main > div').insertBefore(otpView, dashboardView);
+
 
     let currentPhone = '';
     let allAppointments = [];
@@ -31,13 +13,13 @@ document.addEventListener('DOMContentLoaded', () => {
         fetchHistory(token);
     }
 
-    // Step 1: Request OTP
+    // Login
     document.getElementById('login-form').addEventListener('submit', async (e) => {
         e.preventDefault();
         currentPhone = document.getElementById('phone-input').value.trim();
         
         try {
-            const res = await fetch('/api/patients/request-otp', {
+            const res = await fetch('/api/patients/login', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ phone: currentPhone })
@@ -45,41 +27,11 @@ document.addEventListener('DOMContentLoaded', () => {
             
             if (res.ok) {
                 const data = await res.json();
-                document.getElementById('display-phone').innerText = currentPhone;
-                loginView.classList.add('hidden');
-                otpView.classList.remove('hidden');
-                
-                // Auto-fill OTP for testing purposes since real SMS isn't connected
-                if (data.devOtp) {
-                    document.getElementById('otp-input').value = data.devOtp;
-                }
-            } else {
-                document.getElementById('login-error').innerText = 'Failed to send OTP. Please try again.';
-                document.getElementById('login-error').classList.remove('hidden');
-            }
-        } catch (err) {
-            console.error(err);
-        }
-    });
-
-    // Step 2: Verify OTP
-    document.getElementById('otp-form').addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const code = document.getElementById('otp-input').value.trim();
-        
-        try {
-            const res = await fetch('/api/patients/verify-otp', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ phone: currentPhone, code })
-            });
-            
-            if (res.ok) {
-                const data = await res.json();
                 sessionStorage.setItem('luxesmile_patient_token', data.token);
                 fetchHistory(data.token);
             } else {
-                document.getElementById('otp-error').classList.remove('hidden');
+                document.getElementById('login-error').innerText = 'Failed to log in. Please try again.';
+                document.getElementById('login-error').classList.remove('hidden');
             }
         } catch (err) {
             console.error(err);
@@ -100,7 +52,6 @@ document.addEventListener('DOMContentLoaded', () => {
             if (res.ok) {
                 allAppointments = await res.json();
                 loginView.classList.add('hidden');
-                otpView.classList.add('hidden');
                 dashboardView.classList.remove('hidden');
                 navControls.classList.remove('hidden');
                 renderAppointments();

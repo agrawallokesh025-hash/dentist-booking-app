@@ -35,7 +35,7 @@ const authLimiter = rateLimit({
     message: { error: 'Too many attempts, please try again later.' }
 });
 app.use('/api/auth/login', authLimiter);
-app.use('/api/patients/send-otp', authLimiter);
+app.use('/api/patients/login', authLimiter);
 
 // General Middleware
 app.use(cors());

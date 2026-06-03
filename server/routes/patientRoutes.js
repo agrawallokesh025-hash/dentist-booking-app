@@ -3,8 +3,7 @@ const router = express.Router();
 const patientController = require('../controllers/patientController');
 const { verifyToken } = require('../middleware/authMiddleware');
 
-router.post('/request-otp', patientController.requestOtp);
-router.post('/verify-otp', patientController.verifyOtp);
+router.post('/login', patientController.login);
 router.get('/history', verifyToken, patientController.getPatientHistory);
 
 module.exports = router;
