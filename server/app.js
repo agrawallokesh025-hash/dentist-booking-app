@@ -13,6 +13,9 @@ const appointmentRoutes = require('./routes/appointmentRoutes');
 
 const app = express();
 
+// Trust reverse proxy (e.g. Render/Heroku load balancers) so rate limiting can read the correct IP
+app.set('trust proxy', 1);
+
 // Security Middleware
 app.use(helmet({
     contentSecurityPolicy: false, // Disabled so CDN scripts (Tailwind/FontAwesome) work easily
